@@ -1,6 +1,7 @@
 //Configuration library for PopPlus
-//	This stuff is kept at sync storage, for safekeeping
-//	But I hate how it needs to be read async, so we also keep a second copy for easy retrieval
+//	This library stores script configuration at chrome sync and eases access to it
+//	Stored at sync, because it is key to be shared across devices and data is not huge
+//	But I hate how getting it is async, so we keep a local mirror for easy access
 //	Any updates to the config is reflected to sync storage and we read the sync storage only once
 //	Also if no config is there, we store the defaults
 
