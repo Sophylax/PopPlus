@@ -4,7 +4,10 @@
   "version": "1.0",
   "manifest_version": 2,
   "background": {
-    "scripts": ["background/initalize.js"],
+    "scripts": [
+      "background/lib/request.js",
+      "background/initalize.js"
+    ],
     "persistent": false
   },
   "permissions": [
