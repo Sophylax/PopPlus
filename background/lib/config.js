@@ -43,15 +43,23 @@ config = {
 	  }
 	},
 
+	//Retreive value from local copy
+	//	If none exists, check defaults in case of non-initialization
 	get: function (key) {
-		return this.localcopy[key]
+		if (key in this.localcopy)
+			return this.localcopy[key];
+		else {
+			var index = this.storage_list.map((kv) => kv[0]).indexOf(key);
+			if (index >= 0)
+				return this.storage_list[index][1];
+			else
+				return undefined;
+		}
 	},
+
+	//Update local and sync copy
 	set: function (key, value) {
 		this.localcopy[key] = value;
 		chrome.storage.sync.set({[key]: value});
 	}
 }
-
-
-
-//console.log(await readSyncStorage('gymRatConfig'));
