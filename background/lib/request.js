@@ -22,7 +22,7 @@ request = {
 	//	We may need to make a lot of request, and the Popmundo servers doesn't like that (rightfully)
 	//	So we wrap some timing around our requests to hard limit ourselves
 
-	rateLimit: () => 500, //in Miliseconds, is function because I might tie it to a config
+	rateLimit: () => config.get('rateLimit'), //in Miliseconds, looked up from config
 	nextRequest: new Date(), //The datetime for the next available time for requests
 
 	//Returns a promise that just resolves itself when the next time rate limiter is available

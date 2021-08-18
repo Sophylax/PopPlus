@@ -6,6 +6,7 @@
   "background": {
     "scripts": [
       "background/lib/utils.js",
+      "background/lib/config.js",
       "background/lib/request.js",
       "background/initalize.js"
     ],

@@ -1,8 +1,9 @@
-function onStartup() {
+async function onStartup() {
   console.debug("onStartup()");
+  await config.initalize();
 }
 
-function onInstalled() {
+async function onInstalled() {
   console.debug("onInstalled()");
   onStartup();
 }
