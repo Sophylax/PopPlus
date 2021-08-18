@@ -6,7 +6,9 @@ function promiseSyncGet(key) {
 		console.error(chrome.runtime.lastError.message);
 		reject(chrome.runtime.lastError.message);
 	  } else {
-	  	if (items[key] === undefined) {
+	  	if (key === null) {
+	  		resolve(items);
+	  	} else if (items[key] === undefined) {
 	  		reject('Value does not exist in sync storage');
 	  	} else {
 	  		resolve(items[key]);
@@ -24,7 +26,9 @@ function promiseLocalGet(key) {
         console.error(chrome.runtime.lastError.message);
         reject(chrome.runtime.lastError.message);
       } else {
-      	if (items[key] === undefined) {
+      	if (key === null) {
+      		resolve(items);
+      	} else if (items[key] === undefined) {
       		reject('Value does not exist in local storage');
       	} else {
       		resolve(items[key]);
