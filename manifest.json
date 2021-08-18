@@ -1,0 +1,10 @@
+{
+  "name": "PopPlus",
+  "description": "A Browser Extension including Quality of Life and Micro-Automation scripts for Popmundo",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": [
+    "https://*.popmundo.com/*",
+    "https://popmundo.com/*"
+  ]
+}
