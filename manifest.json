@@ -7,6 +7,7 @@
     "scripts": [
       "background/lib/utils.js",
       "background/lib/config.js",
+      "background/lib/database.js",
       "background/lib/request.js",
       "background/initalize.js"
     ],

@@ -1,6 +1,7 @@
 async function onStartup() {
   console.debug("onStartup()");
   await config.initalize();
+  await database.initalize();
 }
 
 async function onInstalled() {
