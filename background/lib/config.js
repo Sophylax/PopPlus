@@ -12,12 +12,12 @@ config = {
 	//Stuff to look up from Sync storage, and their defaults
 	storage_list: [
 		['rateLimit', 500],
-		['credentials',
-			{
-				username: 'SlayerX',
-				password: '@e7^LBl9K8uY',
-				status: 3
-			}],
+		['credentials', undefined],
+			/*{
+				username: String,
+				password: String,
+				status: Integer
+			}*/
 		['gymRatConfig',
 			{
 				enabled: false,
