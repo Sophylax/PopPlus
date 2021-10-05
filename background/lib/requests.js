@@ -4,7 +4,7 @@ requests = {
 
 	//Mostly used primitive network requests, simple GET and POST
 	get: (url) => fetch(url, {mode: 'no-cors'}),
-	post: (url, body) => etch(url, {mode: 'no-cors', method: 'POST', body: body}),
+	post: (url, body) => fetch(url, {mode: 'no-cors', method: 'POST', body: body}),
 
 	//We need to convert the response into DOM quite frequently, to easily parse the retrieved pages
 	//	Works on promises, because everything in the JS hell has to be async
