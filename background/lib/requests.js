@@ -1,6 +1,6 @@
 //Requests library for PopPlus
 
-request = {
+requests = {
 
 	//Mostly used primitive network requests, simple GET and POST
 	get: (url) => fetch(url, {mode: 'no-cors'}),

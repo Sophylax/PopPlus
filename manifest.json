@@ -8,7 +8,7 @@
       "background/lib/utils.js",
       "background/lib/config.js",
       "background/lib/database.js",
-      "background/lib/request.js",
+      "background/lib/requests.js",
       "background/initalize.js"
     ],
     "persistent": false
