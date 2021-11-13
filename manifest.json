@@ -10,6 +10,7 @@
       "background/lib/database.js",
       "background/lib/requests.js",
       "background/lib/parse.js",
+      "background/lib/session.js",
       "background/initalize.js"
     ],
     "persistent": false
