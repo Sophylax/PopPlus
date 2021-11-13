@@ -55,4 +55,36 @@ session = {
 			return  'https://' + subdomain + '.popmundo.com/World/Popmundo.aspx/' + partialURL;
 		}
 	},
+
+	//Check if the browser is logged in to the given subdomain 
+	//	The subdomain arg defaults to the currently logged in server
+	//	A subdomain of 0 always returns false as you cannot login to 'www'
+	checkLoggedSubdomain: async function (subdomain = this.server) {
+		if (subdomain === 0) {
+			return false;
+		}
+		var characterURL = this.completeURL('Character', subdomain);
+		var landingData = await requests.awaitGet(characterURL);
+		return parse.loginState(landingData);
+	},
+
+	knownPopmundoSubdomains: [73,74,75],
+
+	//Checks if the browser is logged in to any one of the known subdomains
+	//	Updates session.server if there is a mismatch
+	findLoggedSubdomain: async function () {
+		if (await this.checkLoggedSubdomain()) {
+			return true;
+		}
+
+		var subdomains = this.knownPopmundoSubdomains.filter(x => x !== this.server);
+		for (const subdomain of subdomains) {
+			if (await this.checkLoggedSubdomain(subdomain)) {
+				this.server = subdomain;
+				return true;	
+			}
+		}
+
+		return false;
+	},
 }
