@@ -42,4 +42,15 @@ session = {
 		this.server = parseInt(loginServer);
 		return true;
 	},
+	
+	//Generate URL from partial url, filling in subdomain as the logged in server
+	//  Partial url is defined as the part after the "/World/Popmundo.aspx/"
+	completeURL: function (partialURL){
+		if (this.server === 0) {
+			return  'https://www.popmundo.com/World/Popmundo.aspx/' + partialURL;
+		}
+		else {
+			return  'https://' + this.server + '.popmundo.com/World/Popmundo.aspx/' + partialURL;
+		}
+	},
 }
