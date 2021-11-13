@@ -21,5 +21,10 @@ parse = {
 			formdata.append('__LASTFOCUS', _LF.value);
 		}
 		return formdata;
-	}
+	},
+
+	//Look at DOM and see if logged in by checking the About link (only appears when logged out)
+	loginState: function(document) {
+		return document.querySelector("#ctl00_ctl08_ucMenu_lnkAbout") === null;
+	},
 }
