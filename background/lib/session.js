@@ -47,7 +47,7 @@ session = {
 	//	The subdomain arg defaults to the currently logged in server
 	//	A subdomain of 0 is interpreted as the 'www' subdomain
 	//  Partial url is defined as the part after the "/World/Popmundo.aspx/"
-	completeURL: function (partialURL, subdomain = this.server){
+	completeURL: function (partialURL, subdomain = this.server) {
 		if (subdomain === 0) {
 			return  'https://www.popmundo.com/World/Popmundo.aspx/' + partialURL;
 		}
