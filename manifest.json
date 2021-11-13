@@ -11,12 +11,14 @@
       "background/lib/requests.js",
       "background/lib/parse.js",
       "background/lib/session.js",
-      "background/initalize.js"
-    ],
-    "persistent": false
+      "background/initalize.js",
+      "background/redirector.js"
+    ]
   },
   "permissions": [
     "storage",
+    "webRequest",
+    "webRequestBlocking",
     "https://*.popmundo.com/*",
     "https://popmundo.com/*"
   ]
