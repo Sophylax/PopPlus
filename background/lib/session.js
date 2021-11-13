@@ -85,6 +85,7 @@ session = {
 			}
 		}
 
+		this.server = 0;
 		return false;
 	},
 }
