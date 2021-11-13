@@ -43,14 +43,16 @@ session = {
 		return true;
 	},
 	
-	//Generate URL from partial url, filling in subdomain as the logged in server
+	//Generate URL from partial url, filling in subdomain from given arg
+	//	The subdomain arg defaults to the currently logged in server
+	//	A subdomain of 0 is interpreted as the 'www' subdomain
 	//  Partial url is defined as the part after the "/World/Popmundo.aspx/"
-	completeURL: function (partialURL){
-		if (this.server === 0) {
+	completeURL: function (partialURL, subdomain = this.server){
+		if (subdomain === 0) {
 			return  'https://www.popmundo.com/World/Popmundo.aspx/' + partialURL;
 		}
 		else {
-			return  'https://' + this.server + '.popmundo.com/World/Popmundo.aspx/' + partialURL;
+			return  'https://' + subdomain + '.popmundo.com/World/Popmundo.aspx/' + partialURL;
 		}
 	},
 }
