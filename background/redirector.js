@@ -31,5 +31,5 @@ chrome.webNavigation.onCompleted.addListener(
                 chrome.tabs.update(tabId, { url: 'https://' + session.server + '.popmundo.com/World/Popmundo.aspx' });
             }
         })();
-    }, { url: [{ hostEquals: 'www.popmundo.com' }, { hostEquals: 'popmundo.com' }] }
+    }, { url: [{ hostSuffix: 'popmundo.com' }] }
 );
