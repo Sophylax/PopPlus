@@ -9,5 +9,5 @@ async function onInstalled() {
     onStartup();
 }
 
-chrome.runtime.onStartup.addListener(onStartup);
-chrome.runtime.onInstalled.addListener(onInstalled);
+browser.runtime.onStartup.addListener(onStartup);
+browser.runtime.onInstalled.addListener(onInstalled);

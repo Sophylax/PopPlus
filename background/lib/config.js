@@ -41,7 +41,7 @@ config = {
             var getPromise = promiseSyncGet(key);
             var value = await getPromise.catch(() => def);
             if (await getPromise.then(() => false, () => true)) //Clowning around to see if it got rejected
-                chrome.storage.sync.set({
+                browser.storage.sync.set({
                 [key]: value
             });
             this.localcopy[key] = value;
@@ -65,7 +65,7 @@ config = {
     //Update local and sync copy
     set: function(key, value) {
         this.localcopy[key] = value;
-        chrome.storage.sync.set({
+        browser.storage.sync.set({
             [key]: value
         });
     }

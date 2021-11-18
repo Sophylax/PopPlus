@@ -1,6 +1,6 @@
 //Database library for PopPlus
 //	Like Configuration library, this is for presistent storage but with key differencese
-//	Database is kept at chrome.local storage, due to its growing nature
+//	Database is kept at browser.local storage, due to its growing nature
 //	There are a lot of information in popmundo that is very persistent so we keep them here to avoid re-parsing pages
 //	Like Configuration library, we keep a local copy for ease, updates reflect to local copy
 //	Unlike that we initialize everything and there is no default value
@@ -11,7 +11,7 @@ database = {
     values: {},
     timestamps: {},
 
-    //Called once at setup, this thing populates our local copy from chrome.local
+    //Called once at setup, this thing populates our local copy from browser.local
     initalize: async function() {
         this.values = await promiseLocalGet('database_values').catch(() => ({}));
         this.timestamps = await promiseLocalGet('database_timestamps').catch(() => ({}));
@@ -58,7 +58,7 @@ database = {
         return cursor;
     },
 
-    //Update local and chrome.local copy
+    //Update local and browser.local copy
     //	set(k1,k2,...,val)
     set: function() {
         var keys = Array.from(arguments);
@@ -78,7 +78,7 @@ database = {
             value_cursor = value_cursor[key];
             stamp_cursor = value_cursor[key];
         }
-        chrome.storage.local.set({ 'database_values': this.values });
-        chrome.storage.local.set({ 'database_timestamps': this.timestamps });
+        browser.storage.local.set({ 'database_values': this.values });
+        browser.storage.local.set({ 'database_timestamps': this.timestamps });
     }
 }
