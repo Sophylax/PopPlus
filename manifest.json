@@ -27,6 +27,7 @@
         ],
         "js": [
             "common/browser-polyfill.min.js",
+            "common/parse.js",
             "content/lib/notification.js",
             "content/redirector.js"
         ]
