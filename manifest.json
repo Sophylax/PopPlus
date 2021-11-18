@@ -11,8 +11,7 @@
             "background/lib/requests.js",
             "background/lib/parse.js",
             "background/lib/session.js",
-            "background/initalize.js",
-            "background/redirector.js"
+            "background/initalize.js"
         ]
     },
     "permissions": [
