@@ -20,6 +20,17 @@
             "background/initalize.js"
         ]
     },
+    "content_scripts": [{
+        "matches": [
+            "https://*.popmundo.com/*",
+            "https://popmundo.com/*"
+        ],
+        "js": [
+            "common/browser-polyfill.min.js",
+            "content/lib/notification.js",
+            "content/redirector.js"
+        ]
+    }],
     "permissions": [
         "storage",
         "webNavigation",
