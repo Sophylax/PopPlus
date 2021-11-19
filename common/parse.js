@@ -23,7 +23,9 @@ parse = {
     },
 
     //Look at DOM and see if logged in by checking the About link (only appears when logged out)
+    //Also check for Welcome link, during downtime nothing appears and we dont properly process
+    //  for 503 responses as failed.
     loginState: function(document) {
-        return document.querySelector("#ctl00_ctl08_ucMenu_lnkAbout") === null;
+        return document.querySelector("#ctl00_ctl08_ucMenu_lnkAbout") === null && document.querySelector("#ctl00_ctl08_ucMenu_lnkStart") !== null;
     },
 }
