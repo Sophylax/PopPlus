@@ -1,1 +1,5 @@
+#Dev Tools
 .vscode/
+
+#Legacy code for referencing
+.legacy/
