@@ -23,19 +23,24 @@ requests = {
     //	So we wrap some timing around our requests to hard limit ourselves
 
     rateLimit: () => config.get('rateLimit'), //in Miliseconds, looked up from config
-    nextRequest: new Date(), //The datetime for the next available time for requests
+
+    //Kinda-Sorta default dict containing when a hostname should be requested
+    //nextRequest.['www.popmundo.com'] for example
+    nextRequest: new Proxy({}, {
+        get: (target, name) => name in target ? target[name] : new Date()
+    }),
 
     //Returns a promise that just resolves itself when the next time rate limiter is available
-    awaitRate: function() {
+    awaitRate: function(hostname) {
         var now = new Date();
-        var remainingTime = this.nextRequest.getTime() - (now).getTime();
+        var remainingTime = this.nextRequest[hostname].getTime() - (now).getTime();
         if (remainingTime < 0) { remainingTime = 0; }
-        this.nextRequest = now;
-        this.nextRequest.setMilliseconds(now.getMilliseconds() + remainingTime + this.rateLimit());
+        this.nextRequest[hostname] = now;
+        this.nextRequest[hostname].setMilliseconds(now.getMilliseconds() + remainingTime + this.rateLimit());
         return new Promise(resolve => setTimeout(resolve, remainingTime));
     },
 
     //More pre-boilerplate'ing
-    awaitGet: function(url) { return this.awaitRate().then(() => this.getIntoDOM(url)) },
-    awaitPost: function(url, body) { return this.awaitRate().then(() => this.postIntoDOM(url, body)) },
+    awaitGet: function(url) { return this.awaitRate((new URL(url)).hostname).then(() => this.getIntoDOM(url)) },
+    awaitPost: function(url, body) { return this.awaitRate((new URL(url)).hostname).then(() => this.postIntoDOM(url, body)) },
 }
