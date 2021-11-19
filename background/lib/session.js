@@ -77,8 +77,12 @@ session = {
         }
 
         var subdomains = this.knownPopmundoSubdomains.filter(x => x !== this.server);
+        var promises = {}
         for (const subdomain of subdomains) {
-            if (await this.checkLoggedSubdomain(subdomain)) {
+            promises[subdomain] = this.checkLoggedSubdomain(subdomain);
+        }
+        for (const subdomain of subdomains) {
+            if (await promises[subdomain]) {
                 this.server = subdomain;
                 return true;
             }
