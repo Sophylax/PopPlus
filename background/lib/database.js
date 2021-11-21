@@ -86,7 +86,7 @@ database = {
     },
 
     //Get Bank Account Details from storage or by requesting the page
-    //  Populates Bank ID, Account Name, Open Date, Limit and Intrest Rate
+    //  Populates Bank ID, Account Name, Open Date, Limit and Interest Rate
     getBankAccountDetails: async function(accountID) {
         return this.memoize('bank-account-details', accountID, async() => {
             var accountURL = session.completeURL('Character/BankAccount/' + accountID, 0);
