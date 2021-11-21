@@ -17,6 +17,7 @@
             "background/lib/database.js",
             "background/lib/requests.js",
             "background/lib/session.js",
+            "background/lib/message.js",
             "background/initalize.js"
         ]
     },
