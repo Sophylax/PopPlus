@@ -20,5 +20,40 @@ if (isEconomy) {
 
         lastNode.parentNode.parentNode.appendChild(totalNode);
         //lastNode.parentNode.insertBefore(totalNode, lastNode.nextSibling);
+
+        var intrestNode = lastNode.cloneNode(true);
+        intrestNode.children[0].innerHTML = '<b>Yearly Interest:</b>';
+        intrestNode.children[1].innerHTML = '<input type="button" id="popPlusInterestCalculator" value="Calculate">';
+
+        totalNode.parentNode.appendChild(intrestNode);
+
+        document.querySelector("#popPlusInterestCalculator").onclick = Test;
     }
+}
+
+async function Test() {
+    var button = document.querySelector("#popPlusInterestCalculator");
+    var parent = button.parentNode;
+    button.remove();
+
+    var output = document.createElement("b");
+    parent.appendChild(output);
+
+    var acc = 0;
+
+    for (let index = 0; index < nodes.length; index++) {
+        const node = nodes[index];
+        output.innerText = `Calculating: ${index + 1} / ${nodes.length}`;
+
+        var money = parseInt(node.innerText) / 10;
+
+        var accountLink = node.parentNode.parentNode.children[0].children[0];
+        var accountId = parseInt(accountLink.href.split('/')[7]);
+        console.log(accountId);
+        var accountDetails = await browser.runtime.sendMessage({ type: 'bankAccountDetails', accountId: accountId }).then((x) => x.result);
+        var interestRate = accountDetails.interestRate;
+        acc += (money * interestRate);
+    }
+
+    output.innerText = `${acc.toLocaleString('en-UK', {minimumFractionDigits: 2})} M$`;
 }
