@@ -72,16 +72,26 @@ database = {
                 stamp_cursor[key] = new Date();
             } else {
                 if (value_cursor[key] === undefined) {
-                value_cursor[key] = {};
+                    value_cursor[key] = {};
                 }
                 if (stamp_cursor[key] === undefined) {
-                stamp_cursor[key] = {};
-            }
+                    stamp_cursor[key] = {};
+                }
             }
             value_cursor = value_cursor[key];
             stamp_cursor = stamp_cursor[key];
         }
         browser.storage.local.set({ 'database_values': this.values });
         browser.storage.local.set({ 'database_timestamps': this.timestamps });
-    }
+    },
+
+    //Get Bank Account Details from storage or by requesting the page
+    //  Populates Bank ID, Account Name, Open Date, Limit and Intrest Rate
+    getBankAccountDetails: async function(accountID) {
+        return this.memoize('bank-account-details', accountID, async() => {
+            var accountURL = session.completeURL('Character/BankAccount/' + accountID, 0);
+            var accountData = await requests.awaitGet(accountURL);
+            return parse.bankAccountDetails(accountData);
+        });
+    },
 }
