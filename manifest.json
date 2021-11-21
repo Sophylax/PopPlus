@@ -30,6 +30,7 @@
             "common/browser-polyfill.min.js",
             "common/parse.js",
             "content/lib/notification.js",
+            "content/economy.js",
             "content/redirector.js"
         ]
     }],
