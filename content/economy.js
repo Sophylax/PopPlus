@@ -19,7 +19,7 @@ if (isEconomy) {
         console.log(totalNode.classList)
 
         totalNode.children[0].innerHTML = '<b>Total:</b>';
-        totalNode.children[1].innerHTML = `<b>${total.toLocaleString('it', {minimumFractionDigits: 2})} M$</b>`;
+        totalNode.children[1].innerHTML = `<b>${total.toLocaleString('en-UK', {minimumFractionDigits: 2})} M$</b>`;
 
         lastNode.parentNode.parentNode.appendChild(totalNode);
         //lastNode.parentNode.insertBefore(totalNode, lastNode.nextSibling);
