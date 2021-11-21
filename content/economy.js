@@ -49,7 +49,6 @@ async function Test() {
 
         var accountLink = node.parentNode.parentNode.children[0].children[0];
         var accountId = parseInt(accountLink.href.split('/')[7]);
-        console.log(accountId);
         var accountDetails = await browser.runtime.sendMessage({ type: 'bankAccountDetails', accountId: accountId }).then((x) => x.result);
         var interestRate = accountDetails.interestRate;
         acc += (money * interestRate);
