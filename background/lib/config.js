@@ -11,7 +11,7 @@ config = {
 
     //Stuff to look up from Sync storage, and their defaults
     storage_list: [
-        ['rateLimit', 500],
+        ['rateLimit', 300],
         ['credentials', undefined],
         /*{
         	username: String,
