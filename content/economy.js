@@ -15,9 +15,6 @@ if (isEconomy) {
             totalNode.className = 'even';
         }
 
-        console.log(lastNode.classList)
-        console.log(totalNode.classList)
-
         totalNode.children[0].innerHTML = '<b>Total:</b>';
         totalNode.children[1].innerHTML = `<b>${total.toLocaleString('en-UK', {minimumFractionDigits: 2})} M$</b>`;
 
