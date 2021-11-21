@@ -70,13 +70,16 @@ database = {
             if (i == keys.length - 1) {
                 value_cursor[key] = value;
                 stamp_cursor[key] = new Date();
-            } else if (value_cursor[key] === undefined) {
+            } else {
+                if (value_cursor[key] === undefined) {
                 value_cursor[key] = {};
-            } else if (stamp_cursor[key] === undefined) {
+                }
+                if (stamp_cursor[key] === undefined) {
                 stamp_cursor[key] = {};
             }
+            }
             value_cursor = value_cursor[key];
-            stamp_cursor = value_cursor[key];
+            stamp_cursor = stamp_cursor[key];
         }
         browser.storage.local.set({ 'database_values': this.values });
         browser.storage.local.set({ 'database_timestamps': this.timestamps });
