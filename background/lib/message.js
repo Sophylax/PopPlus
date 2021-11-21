@@ -22,7 +22,7 @@ function contentRequestsBankAccountDetails(request) {
 browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.type == "loggedSubdomain") {
         return contentRequestsLoggedSubdomain();
-    } else if (request.type == "loggedSubdomain") {
-        return contentRequestsLoggedSubdomain(request);
+    } else if (request.type == "bankAccountDetails") {
+        return contentRequestsBankAccountDetails(request);
     }
 });
