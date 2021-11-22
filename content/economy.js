@@ -27,11 +27,11 @@ if (isEconomy) {
 
         totalNode.parentNode.appendChild(intrestNode);
 
-        document.querySelector("#popPlusInterestCalculator").onclick = Test;
+        document.querySelector("#popPlusInterestCalculator").onclick = CalculateInterest;
     }
 }
 
-async function Test() {
+async function CalculateInterest() {
     var button = document.querySelector("#popPlusInterestCalculator");
     var parent = button.parentNode;
     button.remove();
