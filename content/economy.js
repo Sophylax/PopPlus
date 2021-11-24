@@ -1,3 +1,16 @@
+function CreatePopPlusIcon(document) {
+    var icon = document.createElement("img");
+    icon.src = "/Static/Icons/plus-small.png"
+    icon.alt = "PopPlus Feature"
+    icon.title = "PopPlus Feature"
+    icon.style.filter = "hue-rotate(120deg) contrast(2.5) saturate(0.5)"
+    icon.style.verticalAlign = "text-bottom"
+    icon.style.width = "13px"
+    icon.style.height = "13px"
+    icon.style.objectFit = "none"
+    return icon
+}
+
 var economyPath = 'popmundo.com/World/Popmundo.aspx/Character/Economy';
 var isEconomy = document.URL.includes(economyPath);
 if (isEconomy) {
@@ -15,17 +28,34 @@ if (isEconomy) {
             totalNode.className = 'even';
         }
 
-        totalNode.children[0].innerHTML = '<b>Total:</b>';
-        totalNode.children[1].innerHTML = `<b>${total.toLocaleString('en-UK', {minimumFractionDigits: 2})} M$</b>`;
+        var plusIconTotal = CreatePopPlusIcon(document);
+
+        var totalLeft = document.createElement("b");
+        totalLeft.innerText = 'Total:'
+        totalNode.children[0].replaceChildren(plusIconTotal, totalLeft);
+
+        var totalRight = document.createElement("b");
+        totalRight.innerText = total.toLocaleString('en-UK', { minimumFractionDigits: 2 }) + 'M$';
+        totalNode.children[1].replaceChildren(totalRight);
 
         lastNode.parentNode.parentNode.appendChild(totalNode);
-        //lastNode.parentNode.insertBefore(totalNode, lastNode.nextSibling);
 
-        var intrestNode = lastNode.cloneNode(true);
-        intrestNode.children[0].innerHTML = '<b>Yearly Interest:</b>';
-        intrestNode.children[1].innerHTML = '<input type="button" id="popPlusInterestCalculator" value="Calculate">';
+        var interestNode = lastNode.cloneNode(true);
 
-        totalNode.parentNode.appendChild(intrestNode);
+        var plusIconInterest = CreatePopPlusIcon(document);
+
+        var interestLeft = document.createElement("b");
+        interestLeft.innerText = 'Yearly Interest:'
+        interestNode.children[0].style.verticalAlign = 'middle';
+        interestNode.children[0].replaceChildren(plusIconInterest, interestLeft);
+
+        var interestRight = document.createElement("input");
+        interestRight.type = 'button';
+        interestRight.id = 'popPlusInterestCalculator'
+        interestRight.value = 'Calculate'
+        interestNode.children[1].replaceChildren(interestRight);
+
+        totalNode.parentNode.appendChild(interestNode);
 
         document.querySelector("#popPlusInterestCalculator").onclick = CalculateInterest;
     }
