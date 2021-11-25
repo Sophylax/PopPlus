@@ -7,7 +7,7 @@
 var style = document.createElement('link');
 style.rel = 'stylesheet';
 style.type = 'text/css';
-style.href = chrome.extension.getURL('content/darkmode.css');
+style.href = chrome.extension.getURL('content/visuals/darkmode.css');
 (document.head || document.documentElement).appendChild(style);
 
 //Rendering trickery: I can't modify body reliably before DOM loads to add
