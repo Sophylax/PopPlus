@@ -33,11 +33,21 @@
             "content/economy.js",
             "content/redirector.js"
         ]
+    }, {
+        "matches": [
+            "https://*.popmundo.com/*",
+            "https://popmundo.com/*"
+        ],
+        "js": [
+            "content/darkmode.js"
+        ],
+        "run_at": "document_start"
     }],
     "permissions": [
         "storage",
         "webNavigation",
         "https://*.popmundo.com/*",
         "https://popmundo.com/*"
-    ]
+    ],
+    "web_accessible_resources": ["content/darkmode.css"]
 }
