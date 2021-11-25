@@ -14,7 +14,7 @@ style.href = chrome.extension.getURL('content/visuals/darkmode.css');
 //  the 'dark' class. So I add 'hidden' to the document to hide the body
 //  until it is safe to do some modifications. I'm basically forcing the
 //  rendering to wait for this script.
-document.documentElement.classList.add('hidden');
+//document.documentElement.classList.add('hidden');
 
 window.addEventListener("DOMContentLoaded", function() {
 
@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", function() {
     //  be the last css to override others.
     (document.head || document.documentElement).appendChild(style);
 
-    document.body.classList.add('dark');
+    //document.body.classList.add('dark');
 
     //Where to put the bulb icon. Also a handy login checker.
     /*var accountToolBar = document.querySelector('#character-tools-account');
@@ -60,5 +60,18 @@ window.addEventListener("DOMContentLoaded", function() {
     }*/
 
     //We are done with this, visibility is engaged.
-    (document.documentElement).classList.remove('hidden');
+    //(document.documentElement).classList.remove('hidden');
 })
+MutationObserver = window.MutationObserver
+var insertedNodes = [];
+var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        for (var i = 0; i < mutation.addedNodes.length; i++) {
+            if (mutation.addedNodes[i].tagName === "BODY") {
+                mutation.addedNodes[i].classList.add('dark');
+            }
+        }
+    })
+});
+observer.observe(document.documentElement, { childList: true });
+//console.log(insertedNodes);

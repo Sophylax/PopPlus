@@ -4,7 +4,7 @@
 
 /*Rendering trickery*/
 
-HTML.hidden>BODY {
+html.hidden>body {
     display: none;
 }
 
