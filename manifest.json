@@ -49,5 +49,5 @@
         "https://*.popmundo.com/*",
         "https://popmundo.com/*"
     ],
-    "web_accessible_resources": ["content/darkmode.css"]
+    "web_accessible_resources": ["content/visuals/darkmode.css"]
 }
