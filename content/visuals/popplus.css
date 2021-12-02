@@ -1,3 +1,11 @@
+/* Ad Removal */
+
+div#ppm-btmads,
+div#ppm-sads {
+    display: none !important;
+}
+
+
 /* Below is the Darkmode styles, shamelessly borrowed from "Popmundo Dark Theme" by Faun Fangorn and Dwergie
     https://greasyfork.org/en/scripts/430065-popmundo-dark-theme */
 
