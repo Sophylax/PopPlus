@@ -9,7 +9,7 @@ session = {
     login: async function() {
         var credentials = config.get('credentials');
 
-        if (credentials === undefined) {
+        if (credentials == undefined) {
             this.server = 0;
             return false;
         }
