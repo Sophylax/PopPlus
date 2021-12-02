@@ -277,8 +277,7 @@ body.dark div.tbcy {
     background-color: var(--bg-highlight);
 }
 
-body.dark input[type="submit"],
-body.dark input[type="password"] {
+body.dark input[type="submit"] {
     padding: 0.5rem 1rem;
     background-color: var(--bg-input);
     color: var(--fc-primary);
