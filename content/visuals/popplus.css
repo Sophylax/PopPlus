@@ -1,3 +1,39 @@
+/* Numeric Progress Bars */
+
+div:is(.progressBar, .blueProgressBar, .greenProgressBar, .redProgressBar, .plusMinusBar) {
+    position: relative;
+}
+
+div.plusMinusBar div.posholder,
+div.plusMinusBar div.negholder {
+    overflow: hidden;
+    background: none;
+}
+
+div:is(.progressBar, .blueProgressBar, .greenProgressBar, .redProgressBar, .plusMinusBar)::after {
+    position: absolute;
+    font-weight: 900;
+    font-size: smaller;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    content: attr(data-content);
+    width: 100%;
+    top: 0px;
+    right: 0px;
+}
+
+body:not(.dark) div:is(.progressBar, .blueProgressBar, .greenProgressBar, .redProgressBar, .plusMinusBar)::after {
+    color: black;
+    text-shadow: -1px 0px 0 white, 1px 0px 0 white, 0px 1px 0 white, 0px -1px 0 white;
+}
+
+body.dark div:is(.progressBar, .blueProgressBar, .greenProgressBar, .redProgressBar, .plusMinusBar)::after {
+    color: var(--fc-bar);
+    text-shadow: -1px -1px 0 var(--fc-primary), 0 -1px 0 var(--fc-primary), 1px -1px 0 var(--fc-primary), 1px 0 0 var(--fc-primary), 1px 1px 0 var(--fc-primary), 0 1px 0 var(--fc-primary), -1px 1px 0 var(--fc-primary), -1px 0 0 var(--fc-primary);
+}
+
+
 /* Ad Removal */
 
 div#ppm-btmads,
@@ -178,7 +214,8 @@ body.dark div.plusMinusBar {
 
 body.dark div.progressBar,
 body.dark div.greenProgressBar,
-body.dark div.blueProgressBar {
+body.dark div.blueProgressBar,
+body.dark div.plusMinusBar {
     background: none !important;
     background-color: var(--bg-darkest) !important;
     border-color: var(--bg-darkest);
@@ -188,7 +225,11 @@ body.dark div.blueProgressBar {
 body.dark div.full,
 body.dark div.med,
 body.dark div.high,
-body.dark div.low {
+body.dark div.low,
+body.dark div.posholder,
+body.dark div.negholder,
+body.dark div.pos,
+body.dark div.neg {
     background: none !important;
 }
 
@@ -196,7 +237,8 @@ body.dark div.full {
     background-color: var(--bar-full) !important;
 }
 
-body.dark div.high {
+body.dark div.high,
+body.dark div.pos {
     background-color: var(--bar-high) !important;
 }
 
@@ -204,7 +246,8 @@ body.dark div.med {
     background-color: var(--bar-med) !important;
 }
 
-body.dark div.low {
+body.dark div.low,
+body.dark div.neg {
     background-color: var(--bar-low) !important;
 }
 

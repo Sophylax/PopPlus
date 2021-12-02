@@ -41,7 +41,8 @@
         "js": [
             "content/visuals/stylesheet.js",
             "content/visuals/darkmode.js",
-            "content/visuals/numericscore.js"
+            "content/visuals/numericscore.js",
+            "content/visuals/barpercent.js"
         ],
         "run_at": "document_start"
     }],
