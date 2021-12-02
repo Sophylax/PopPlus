@@ -177,14 +177,11 @@ body.dark div.plusMinusBar {
 }
 
 body.dark div.progressBar,
-body.dark div.greenProgressBar {
+body.dark div.greenProgressBar,
+body.dark div.blueProgressBar {
     background: none !important;
     background-color: var(--bg-darkest) !important;
     border-color: var(--bg-darkest);
-    color: var(--fc-bar);
-}
-
-body.dark div.blueProgressBar {
     color: var(--fc-bar);
 }
 
