@@ -40,7 +40,8 @@
         ],
         "js": [
             "content/visuals/stylesheet.js",
-            "content/visuals/darkmode.js"
+            "content/visuals/darkmode.js",
+            "content/visuals/numericscore.js"
         ],
         "run_at": "document_start"
     }],
