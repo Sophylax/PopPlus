@@ -23,12 +23,19 @@
     --fc-link: rgb(141, 202, 226);
     --fc-link-contrast: rgb(53, 50, 65);
     --fc-bar: rgb(33, 35, 38);
-    /* Progress Bars */
-    --bar-full: rgb(246, 231, 19);
-    --bar-high: rgb(66, 215, 83);
-    --bar-med: rgb(104, 166, 196);
-    --bar-low: rgb(222, 52, 43);
-    --bar-progress: rgb(66, 215, 83);
+    /* Bright Progress Bars */
+    --bar-full: hsl(60, 100%, 60%);
+    --bar-high: hsl(120, 100%, 60%);
+    --bar-med: hsl(200, 100%, 60%);
+    --bar-low: hsl(0, 100%, 60%);
+    --bar-progress: hsl(120, 100%, 60%);
+    /* Dark Progress Bars */
+    /*
+    --bar-full: hsl(60, 100%, 20%);
+    --bar-high: hsl(120, 100%, 20%);
+    --bar-med: hsl(200, 100%, 20%);
+    --bar-low: hsl(0, 100%, 20%);
+    --bar-progress: hsl(120, 100%, 20%);*/
 }
 
  ::selection {
