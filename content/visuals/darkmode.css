@@ -1,13 +1,6 @@
 /*Shamelessly borrowed from "Popmundo Dark Theme" by Faun Fangorn and Dwergie
     https://greasyfork.org/en/scripts/430065-popmundo-dark-theme */
 
-
-/*Rendering trickery*/
-
-html.hidden>body {
-    display: none;
-}
-
  :root {
     /* Background Colors */
     --bg-body: rgb(40, 42, 46);
