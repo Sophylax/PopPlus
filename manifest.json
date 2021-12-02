@@ -39,6 +39,7 @@
             "https://popmundo.com/*"
         ],
         "js": [
+            "content/visuals/stylesheet.js",
             "content/visuals/darkmode.js"
         ],
         "run_at": "document_start"
@@ -49,5 +50,5 @@
         "https://*.popmundo.com/*",
         "https://popmundo.com/*"
     ],
-    "web_accessible_resources": ["content/visuals/darkmode.css"]
+    "web_accessible_resources": ["content/visuals/popplus.css"]
 }
