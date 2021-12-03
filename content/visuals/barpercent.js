@@ -4,7 +4,6 @@ var percentPattern = /[\+\-]?[0-9]+%/
 
 function percentAdderMutator(parentNode, addedNode) {
     if (addedNode.tagName == "DIV" && (addedNode.className.includes('rogressBar') || addedNode.className.includes('plusMinusBar'))) {
-        console.log(addedNode)
         addedNode.dataset['content'] = percentPattern.exec(addedNode.title);
     }
     for (const childNode of addedNode.childNodes) {
