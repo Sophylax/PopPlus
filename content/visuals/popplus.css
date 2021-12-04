@@ -1,3 +1,10 @@
+/* Numeric Scores */
+
+a[href*="/World/Popmundo.aspx/Help/Scoring/"]::after {
+    content: " (" attr(data-content) ")";
+}
+
+
 /* Numeric Progress Bars */
 
 div:is(.progressBar, .blueProgressBar, .greenProgressBar, .redProgressBar, .plusMinusBar) {

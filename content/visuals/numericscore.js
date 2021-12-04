@@ -5,7 +5,7 @@ var numericScoreObserver = new window.MutationObserver(function(mutations) {
             var addedNode = mutation.addedNodes[i]
             if (addedNode.tagName === "A" && addedNode.href.includes('/World/Popmundo.aspx/Help/Scoring/')) {
                 var score = addedNode.href.split('/World/Popmundo.aspx/Help/Scoring/')[1];
-                addedNode.innerText += ` (${score-1})`;
+                addedNode.dataset['content'] = score - 1;
             }
         }
     })
