@@ -4,13 +4,17 @@
 //Retrieve Confirmed Logged in Subdomain
 function contentRequestsLoggedSubdomain() {
     return session.findLoggedSubdomain().then((loginState) => {
-        if (loginState) {
-            return { result: session.server }
-        } else {
-            return session.login().then((loginSuccess) => {
-                return { result: session.server }
-            });
-        }
+        return { result: session.server }
+    });
+}
+
+function contentRequestsCredentials(sendResponse) {
+    sendResponse({ result: config.get('credentials') })
+}
+
+function contentRequestsLogin() {
+    return session.login().then((loginSuccess) => {
+        return { result: session.server }
     });
 }
 
@@ -22,6 +26,10 @@ function contentRequestsBankAccountDetails(request) {
 browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.type == "loggedSubdomain") {
         return contentRequestsLoggedSubdomain();
+    } else if (request.type == "credentials") {
+        return contentRequestsCredentials(sendResponse);
+    } else if (request.type == "login") {
+        return contentRequestsLogin();
     } else if (request.type == "bankAccountDetails") {
         return contentRequestsBankAccountDetails(request);
     }
