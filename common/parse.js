@@ -25,8 +25,10 @@ parse = {
     //Look at DOM and see if logged in by checking the About link (only appears when logged out)
     //Also check for Welcome link, during downtime nothing appears and we dont properly process
     //  for 503 responses as failed.
+    //Choose Character Link overrides everything cuz that layout is just different from anything
+    //  else
     loginState: function(document) {
-        return document.querySelector("#ctl00_ctl08_ucMenu_lnkAbout") === null && document.querySelector("#ctl00_ctl08_ucMenu_lnkStart") !== null;
+        return document.querySelector("#ctl00_ctl08_ucMenu_lnkChooseCharacter") !== null  || (document.querySelector("#ctl00_ctl08_ucMenu_lnkAbout") === null && document.querySelector("#ctl00_ctl08_ucMenu_lnkStart") !== null);
     },
 
     //Parse Owner, Bank ID, Account Name, Open Date, Limit and Interest Rate
