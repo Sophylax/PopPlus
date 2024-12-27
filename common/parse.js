@@ -30,13 +30,14 @@ parse = {
     },
 
     //Parse Owner, Bank ID, Account Name, Open Date, Limit and Interest Rate
+    //  This assumes default language of US-EN, which is what I get when I'm not logged in
     bankAccountDetails: function(document) {
         var owner = parseInt(document.querySelector("#ppm-sidemenu > div > div:nth-child(2) > ul > li:nth-child(1) > a").href.split('/')[6]);
         var bankId = parseInt(document.querySelector("#ctl00_cphLeftColumn_ctl00_lnkBank").href.split('/')[6]);
         var accountName = document.querySelector("#ppm-content > div:nth-child(4) > table > tbody > tr:nth-child(2) > td:nth-child(2)").innerText;
         var openDate = new Date(document.querySelector("#ppm-content > div:nth-child(4) > table > tbody > tr:nth-child(3) > td:nth-child(2)").innerText);
         var limit = parseFloat(document.querySelector("#ppm-content > div:nth-child(4) > table > tbody > tr:nth-child(6) > td:nth-child(2)").innerText.replaceAll(',', '').replace(' M$', ''));
-        var interestRate = parseFloat(document.querySelector("#ppm-content > div:nth-child(4) > table > tbody > tr:nth-child(5) > td:nth-child(2)").innerText.replaceAll(',', '').replace('%', '')) / 100;
+        var interestRate = parseFloat(document.querySelector("#ppm-content > div:nth-child(4) > table > tbody > tr:nth-child(5) > td:nth-child(2)").innerText.replaceAll(',', '.').replace('%', '')) / 100;
         return {
             owner: owner,
             bankId: bankId,
